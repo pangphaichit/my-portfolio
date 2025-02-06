@@ -1,17 +1,17 @@
 <template>
   <div class="home">
-    <AboutPage />
+    <ProjectsPage />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import AboutPage from '@/components/AboutPage.vue'; // @ is an alias to /src
+import ProjectsPage from '@/components/ProjectsPage.vue';
 
 export default defineComponent({
-  name: 'AboutView',
+  name: 'ProjectsView',
   components: {
-    AboutPage,
+    ProjectsPage,
   },
 });
 </script>
