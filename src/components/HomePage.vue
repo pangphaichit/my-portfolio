@@ -26,6 +26,7 @@
         <img class="saturn-image" alt="Saturn Image" src="saturn.png" />
         <img class="sphere-pastel" alt="Pastel Sphere Image" src="sphere-pastel.png" />
       </div>
+      <AppFooter />
     </div>
   </div>
 </template>
@@ -34,11 +35,13 @@
 import { ref, onMounted, defineComponent } from 'vue';
 import { useRouter } from 'vue-router';
 import NavBar from '@/components/NavBar.vue';
+import AppFooter from '@/components/AppFooter.vue';
 
 export default defineComponent({
   name: 'HomePage',
   components: {
     NavBar,
+    AppFooter,
   },
   setup() {
     const loading = ref(true);
@@ -100,6 +103,7 @@ export default defineComponent({
 
 h1,
 p {
+  user-select: none;
   margin: 0;
   color: rgb(255, 255, 255);
 }
@@ -120,6 +124,7 @@ p {
 }
 
 .about-button {
+  user-select: none;
   border: 2px solid white;
   background: transparent;
   color: white;
@@ -141,6 +146,8 @@ p {
 
 .sphere-pastel,
 .saturn-image {
+  pointer-events: none;
+  user-select: none;
   position: absolute;
   opacity: 1;
   z-index: 1;
@@ -155,7 +162,7 @@ p {
 }
 
 .saturn-image {
-  bottom: 8%;
+  bottom: 11%;
   right: 5%;
   width: 200px;
   transform: rotate(-10deg);
@@ -318,7 +325,7 @@ p {
   .saturn-image {
     top: 25%;
     right: 5%;
-    width: 750px;
+    width: 725px;
   }
   .homepage-container.fade-in .saturn-image {
     animation: fadeInFromRight 2s ease-out 0.5s forwards;

@@ -80,6 +80,7 @@ export default {
 
 <style scoped>
 .navbar {
+  user-select: none;
   position: relative;
   z-index: 1000;
   font-family: 'Raleway', sans-serif;
