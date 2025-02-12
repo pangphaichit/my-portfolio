@@ -24,7 +24,7 @@
           <button class="about-button" @click="goToAboutPage">About Me</button>
         </div>
         <img class="saturn-image" alt="Saturn Image" src="saturn.png" />
-        <img class="sphere-pastel" alt="Sphere Pastel Image" src="sphere-pastel.png" />
+        <img class="sphere-pastel" alt="Pastel Sphere Image" src="sphere-pastel.png" />
       </div>
     </div>
   </div>
@@ -63,7 +63,7 @@ export default defineComponent({
 .main-container {
   position: relative;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
 }
 
@@ -71,10 +71,9 @@ export default defineComponent({
   position: relative;
   font-family: 'Raleway', sans-serif;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: rgb(255, 245, 254);
   background: linear-gradient(180deg, rgb(174, 193, 227), rgb(246, 206, 218));
   opacity: 0;
   transition: opacity 1s ease-in-out;
@@ -88,19 +87,15 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   flex-grow: 1;
+  padding: 20px;
+  text-align: center;
 }
 
 .greeting-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  position: absolute;
-  left: 35%;
-  top: 55%;
-  transform: translate(-50%, -50%);
+  max-width: 100%;
+  z-index: 2;
 }
 
 h1,
@@ -109,42 +104,19 @@ p {
   color: rgb(255, 255, 255);
 }
 
-@keyframes fadeInDown {
-  0% {
-    opacity: 0;
-    transform: translateY(-50px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 h1 {
   font-weight: 700;
-  font-size: 4rem;
+  font-size: 2.5rem;
   margin-bottom: 15px;
   animation: fadeInDown 3s ease-out;
-  opacity: 1;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 
 p {
   font-weight: 400;
-  word-wrap: break-word;
-  word-break: break-word;
   line-height: 1.5;
-  max-width: 48%;
-  font-size: 1.25rem;
+  font-size: 1rem;
   animation: fadeIn 4s ease-out;
-  opacity: 1;
+  margin-bottom: 10px;
 }
 
 .about-button {
@@ -158,14 +130,57 @@ p {
   width: 200px;
   height: 50px;
   border-radius: 8px;
-  margin-top: 25px;
-  animation: fadeIn 2s ease-out;
-  opacity: 1;
+  margin-top: 20px;
+  animation: fadeIn 4s ease-out;
 }
 
 .about-button:hover {
   background: white;
   color: rgb(174, 193, 227);
+}
+
+.sphere-pastel,
+.saturn-image {
+  position: absolute;
+  opacity: 1;
+  z-index: 1;
+}
+
+.sphere-pastel {
+  top: 25%;
+  left: 5%;
+  width: 60px;
+  transform: rotate(5deg);
+  animation: fadeIn 4s ease-out;
+}
+
+.saturn-image {
+  bottom: 8%;
+  right: 5%;
+  width: 200px;
+  transform: rotate(-10deg);
+  animation: fadeInFromRight 2s ease-out 0.5s forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeInFromRight {
@@ -177,24 +192,6 @@ p {
     opacity: 1;
     transform: translateX(0) rotate(-10deg);
   }
-}
-
-.sphere-pastel {
-  position: absolute;
-  top: 8%;
-  left: 5%;
-  width: 120px;
-  transform: rotate(5deg);
-  animation: fadeIn 2s ease-out;
-}
-
-.saturn-image {
-  position: absolute;
-  top: 25%;
-  right: 5%;
-  width: 750px;
-  transform: rotate(-10deg);
-  opacity: 0;
 }
 
 .homepage-container.fade-in .saturn-image {
@@ -289,5 +286,42 @@ p {
   margin: auto;
   transform: rotateX(90deg) translateZ(-40px);
   filter: blur(12px);
+}
+
+@media screen and (min-width: 768px) {
+  .greeting-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    left: 35%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+  }
+
+  h1 {
+    font-size: 4rem;
+  }
+
+  p {
+    max-width: 60%;
+    font-size: 1.25rem;
+  }
+
+  .sphere-pastel {
+    top: 8%;
+    left: 5%;
+    width: 120px;
+  }
+  .saturn-image {
+    top: 25%;
+    right: 5%;
+    width: 750px;
+  }
+  .homepage-container.fade-in .saturn-image {
+    animation: fadeInFromRight 2s ease-out 0.5s forwards;
+  }
 }
 </style>
