@@ -16,17 +16,16 @@
       <div class="content">
         <div class="greeting-text">
           <h1>Bringing ideas to life.</h1>
-          <p>In a universe where creativity knows no bounds,</p>
           <p>
-            I turn concepts into real-world solutions. With a focus on user experience and business
-            needs, my portfolio showcases the limitless potential of thoughtful innovation.
+            In a universe where creativity knows no bounds, I turn concepts into real-world
+            solutions. With a focus on user experience and business needs, my portfolio showcases
+            the limitless potential of thoughtful innovation.
           </p>
           <button class="about-button" @click="goToAboutPage">About Me</button>
         </div>
         <img class="saturn-image" alt="Saturn Image" src="saturn.png" />
         <img class="sphere-pastel" alt="Pastel Sphere Image" src="sphere-pastel.png" />
       </div>
-      <AppFooter />
     </div>
   </div>
 </template>
@@ -35,13 +34,11 @@
 import { ref, onMounted, defineComponent } from 'vue';
 import { useRouter } from 'vue-router';
 import NavBar from '@/components/NavBar.vue';
-import AppFooter from '@/components/AppFooter.vue';
 
 export default defineComponent({
   name: 'HomePage',
   components: {
     NavBar,
-    AppFooter,
   },
   setup() {
     const loading = ref(true);
@@ -110,7 +107,7 @@ p {
 
 h1 {
   font-weight: 700;
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin-bottom: 15px;
   animation: fadeInDown 3s ease-out;
 }
@@ -154,16 +151,16 @@ p {
 }
 
 .sphere-pastel {
-  top: 25%;
-  left: 5%;
+  top: 22%;
+  left: 0%;
   width: 60px;
   transform: rotate(5deg);
   animation: fadeIn 4s ease-out;
 }
 
 .saturn-image {
-  bottom: 11%;
-  right: 5%;
+  bottom: 3%;
+  left: 70%;
   width: 200px;
   transform: rotate(-10deg);
   animation: fadeInFromRight 2s ease-out 0.5s forwards;
@@ -324,7 +321,7 @@ p {
   }
   .saturn-image {
     top: 25%;
-    right: 5%;
+    left: 50%;
     width: 725px;
   }
   .homepage-container.fade-in .saturn-image {
