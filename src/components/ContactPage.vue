@@ -1,17 +1,13 @@
 <template>
-  <div class="contact-container"><NavBar /></div>
+  <div class="contact-container"></div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 
-import NavBar from '@/components/NavBar.vue';
-
 export default defineComponent({
   name: 'ContactPage',
-  components: {
-    NavBar,
-  },
+  components: {},
 });
 </script>
 

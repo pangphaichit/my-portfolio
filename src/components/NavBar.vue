@@ -1,39 +1,42 @@
 <template>
-  <nav class="navbar">
-    <div class="logo">
-      <router-link to="/" class="portfolio" data-text="Awesome">
-        <span class="actual-text">&nbsp;Portfolio&nbsp;</span>
-        <span aria-hidden="true" class="hover-text">&nbsp;Portfolio&nbsp;</span>
-      </router-link>
+  <nav class="navbar-container">
+    <div class="navbar">
+      <div class="logo">
+        <a href="#home-section" class="portfolio" data-text="Awesome">
+          <span class="actual-text">&nbsp;Portfolio&nbsp;</span>
+          <span aria-hidden="true" class="hover-text">&nbsp;Portfolio&nbsp;</span>
+        </a>
+      </div>
+
+      <button
+        class="menu-toggle"
+        @click="toggleMenu"
+        @keydown.enter="toggleMenu"
+        aria-label="Toggle menu"
+        :aria-expanded="isMenuOpen"
+      >
+        <span class="menu-icon" :class="{ open: isMenuOpen }">
+          <span v-for="n in 3" :key="n"></span>
+        </span>
+      </button>
+
+      <div
+        class="menu-overlay"
+        v-if="isMenuOpen"
+        @click="closeMenu"
+        @keydown.enter="closeMenu"
+        tabindex="0"
+        role="button"
+        aria-label="Close menu"
+      ></div>
+
+      <ul ref="menu" class="links" :class="{ active: isMenuOpen }">
+        <li><a href="#home-section" @click="closeMenu">Home</a></li>
+        <li><a href="#about-section" @click="closeMenu">About</a></li>
+        <li><a href="#projects-section" @click="closeMenu">Projects</a></li>
+        <li><a href="#contact-section" @click="closeMenu">Contact</a></li>
+      </ul>
     </div>
-
-    <button
-      class="menu-toggle"
-      @click="toggleMenu"
-      @keydown.enter="toggleMenu"
-      aria-label="Toggle menu"
-      :aria-expanded="isMenuOpen"
-    >
-      <span class="menu-icon" :class="{ open: isMenuOpen }">
-        <span v-for="n in 3" :key="n"></span>
-      </span>
-    </button>
-
-    <div
-      class="menu-overlay"
-      v-if="isMenuOpen"
-      @click="closeMenu"
-      @keydown.enter="closeMenu"
-      tabindex="0"
-      role="button"
-      aria-label="Close menu"
-    ></div>
-
-    <ul ref="menu" class="links" :class="{ active: isMenuOpen }">
-      <li><router-link to="/about" @click="closeMenu">About</router-link></li>
-      <li><router-link to="/projects" @click="closeMenu">Projects</router-link></li>
-      <li><router-link to="/contact" @click="closeMenu">Contact</router-link></li>
-    </ul>
   </nav>
 </template>
 
@@ -80,8 +83,10 @@ export default {
 
 <style scoped>
 .navbar {
+  position: fixed;
+  width: 100vw;
+  top: 0;
   user-select: none;
-  position: relative;
   z-index: 1000;
   font-family: 'Raleway', sans-serif;
   display: flex;
@@ -260,11 +265,12 @@ export default {
 
 @media (min-width: 768px) {
   .navbar {
+    width: 90vw;
     padding: 2rem 3rem;
     border-bottom-right-radius: 70px;
     margin-right: 5rem;
     border-right: 1px solid white;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgb(255, 255, 255);
   }
 
   .menu-toggle {
