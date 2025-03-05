@@ -18,10 +18,9 @@
           <h1>Bringing ideas to life.</h1>
           <div class="text-content">
             <p>
-              In a universe where creativity knows no bounds, <br />
-              I turn concepts into real-world solutions.<br />
-              With a focus on user experience and business needs, my portfolio showcases the
-              limitless potential of thoughtful innovation.
+              In a universe where creativity knows no bounds, I turn concepts into real-world
+              solutions. With a focus on user experience and business needs, my portfolio showcases
+              the limitless potential of thoughtful innovation.
             </p>
 
             <div class="about-button">
@@ -31,11 +30,6 @@
         </div>
         <img class="saturn-image" alt="Saturn Image" src="saturn.png" />
         <img class="sphere-pastel" alt="Pastel Sphere Image" src="sphere-pastel.png" />
-      </div>
-      <div class="wave">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120">
-          <path fill="#ffffff" d="M0,40 C360,0 1080,160 1440,40 V120 H0Z"></path>
-        </svg>
       </div>
     </div>
   </div>
@@ -128,7 +122,7 @@ h1 {
 
 p {
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 2;
   font-size: 1rem;
   animation: fadeIn 4s ease-out;
   margin-bottom: 10px;
@@ -221,23 +215,6 @@ p {
 
 .homepage-container.fade-in .saturn-image {
   animation: fadeInFromRight 2s ease-out 0.5s forwards;
-}
-
-.wave {
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
-  display: block;
-  line-height: 0;
-}
-
-.wave svg {
-  width: 100%;
-  height: auto;
-  display: block;
 }
 
 /* pyramid-loader */
@@ -343,17 +320,13 @@ p {
     transform: translate(-50%, -50%);
   }
 
-  .text-content {
-    margin: 0px;
-  }
-
   h1 {
     font-size: 4rem;
   }
 
   p {
-    max-width: 65%;
-    font-size: 1.25rem;
+    font-size: 1.2rem;
+    padding: 0px 140px;
   }
 
   .sphere-pastel {

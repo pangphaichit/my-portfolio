@@ -1,11 +1,6 @@
 <template>
   <div class="projects-container">
-    <div class="wave">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120">
-        <path fill="#ffffff" d="M0,80 C360,160 1080,0 1440,80 V120 H0Z"></path>
-      </svg>
-    </div>
-    <div class="projects-grid">
+    <div class="projects-card">
       <ProjectCard v-for="project in projects" :key="project.name" v-bind="project" />
     </div>
   </div>
@@ -77,37 +72,18 @@ const projects = ref<Project[]>([
 .projects-container {
   position: relative;
   width: 100%;
-  min-height: 100vh;
-  font-family: 'Raleway', sans-serif;
+  overflow: hidden;
+}
+
+.projects-card {
   display: flex;
+  width: 100%;
   flex-direction: column;
-  padding: 5px;
 }
 
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  margin-top: 160px;
-}
-
-.wave {
-  position: absolute;
-  top: -1px;
-  left: 0;
-  width: 100%;
-  line-height: 0;
-  transform: rotate(180deg);
-}
-
-.wave svg {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-@media (min-width: 768px) {
-  .projects-grid {
+@media screen and (min-width: 768px) {
+  .projects-card {
+    flex-direction: row;
   }
 }
 </style>

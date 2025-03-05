@@ -70,7 +70,6 @@ export default {
 .project-card {
   width: 100%;
   height: 400px;
-  padding: 0px 10px 20px 10px;
 }
 
 .card-inner {
@@ -94,27 +93,22 @@ export default {
 }
 
 .card-front {
-  display: flex;
-  flex-direction: column;
   align-items: center;
   background-color: rgb(235, 235, 235);
   color: #fff;
   border-radius: 10px;
   font-size: 24px;
   transform: rotateY(0deg);
-  width: 100%;
   padding: 15px;
 }
 
 .card-front-image {
   position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+  height: 50%;
 }
 
 .card-front-details {
-  width: 50%;
+  height: 50%;
 }
 
 .project-name {
@@ -138,8 +132,7 @@ export default {
 
 .tech-stack-grid-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .tech-item {
@@ -170,15 +163,6 @@ export default {
   .project-card {
     width: 100%;
     height: 520px;
-    padding: 0px 20px 20px 20px;
-  }
-
-  .card-front-image {
-    height: 50%;
-  }
-
-  .card-front-details {
-    height: 50%;
   }
 }
 </style>
