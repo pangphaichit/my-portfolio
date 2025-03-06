@@ -8,9 +8,6 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import petSitterImage from '@/assets/projects/petsitter.png';
-import personalBlogImage from '@/assets/projects/personal-blog.png';
-import touristAttractionFinderImage from '@/assets/projects/tourist-attraction-finder.png';
 import ProjectCard from './ProjectCard.vue';
 
 interface Project {
@@ -26,11 +23,11 @@ interface Project {
 
 const projects = ref<Project[]>([
   {
-    name: 'Pet Sitter',
+    name: 'PET SITTER',
     details:
-      'A pet sitter platform for pet owners to find trustworthy sitters who can take care of their beloved pets.',
-    image: petSitterImage,
-    workType: 'Full-stack Development',
+      'A pet sitter platform connecting pet owners with trusted sitters. Users can search by name, rating, pet type, experience, and location, manage profiles, bookings, and chat. Pet owners can also become sitters and earn money!',
+    image: '/assets/projects/petsitter.png',
+    workType: 'Full-stack',
     features: [
       'Interactive map for searching pet sitters.',
       'Pet sitter info',
@@ -42,20 +39,22 @@ const projects = ref<Project[]>([
     githubLink: 'https://github.com/werapolJa/pet-sitter',
   },
   {
-    name: 'Personal Blog',
-    details: 'A responsive personal blog for cat lovers.',
-    image: personalBlogImage,
-    workType: 'Frontend Development',
+    name: 'PERSONAL BLOG',
+    details:
+      'A responsive personal blog designed for cat lovers. Visitors can search for content using text input or by category and share their favorite articles on social media.',
+    image: '/assets/projects/personal-blog.png',
+    workType: 'Frontend',
     features: ['Responsive design', 'Text-based search for blog content', 'Social media sharing'],
     techStack: ['JavaScript', 'Node.js', 'React.js', 'Tailwind CSS'],
     vercelLink: 'https://personal-blog-pangphaichit.vercel.app/',
     githubLink: 'https://github.com/pangphaichit/personal-blog-pangphaichit',
   },
   {
-    name: 'Tourist Attraction Finder',
-    details: 'A responsive tourist attraction search feature.',
-    image: touristAttractionFinderImage,
-    workType: 'Frontend Development',
+    name: 'TOURIST ATTRACTION FINDER',
+    details:
+      'A responsive tourist attraction search feature that allows users to search by text input, filter results by tag categories, and copy links to share attractions.',
+    image: '/assets/projects/tourist-attraction-finder.png',
+    workType: 'Frontend',
     features: [
       'Search feature.',
       'URL copy for tourist attraction pages',
@@ -70,19 +69,27 @@ const projects = ref<Project[]>([
 
 <style scoped>
 .projects-container {
+  display: flex;
   position: relative;
   width: 100%;
   overflow: hidden;
+  background: rgb(174, 193, 227);
+  user-select: none;
 }
 
 .projects-card {
   display: flex;
   width: 100%;
   flex-direction: column;
+  margin-top: 30%;
+  margin-left: 16px;
+  margin-right: 16px;
+  gap: 16px;
 }
 
 @media screen and (min-width: 768px) {
   .projects-card {
+    margin-top: 10%;
     flex-direction: row;
   }
 }

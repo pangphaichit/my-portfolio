@@ -24,7 +24,7 @@
             </p>
 
             <div class="about-button">
-              <a href="#about-section" class="go-to-about-section">About</a>
+              <a href="#about-section" class="go-to-about-section">ABOUT</a>
             </div>
           </div>
         </div>
@@ -136,19 +136,21 @@ p {
   border: 2px solid white;
   background: transparent;
   color: white;
-  font-size: 1.2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   width: 30vh;
   height: 50px;
-  border-radius: 8px;
+  border-radius: 10px;
   margin-top: 20px;
   animation: fadeIn 4s ease-out;
 }
 
 .about-button:hover {
   background: white;
-  color: rgb(174, 193, 227);
+  color: rgb(183, 133, 201);
 }
 
 .about-button a {

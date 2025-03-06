@@ -31,6 +31,12 @@
         <TechStackIcons />
       </div>
     </section>
+    <div class="go-to-projects-container">
+      <h2>Would you like to explore my projects?</h2>
+      <div class="projects-button">
+        <a href="#projects-section" class="go-to-projects-section">PROJECTS</a>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -62,6 +68,7 @@ const educationItems = ref([
   background: white;
   overflow: hidden;
   background: linear-gradient(180deg, rgb(246, 206, 218), rgb(174, 193, 227));
+  user-select: none;
 }
 
 .pastel-saturn-image {
@@ -70,9 +77,11 @@ const educationItems = ref([
   user-select: none;
   z-index: 1;
   top: 0%;
-  left: 0%;
+  right: 0%;
   width: 600px;
-  opacity: 0.7;
+  opacity: 0.2;
+  pointer-events: none;
+  user-select: none;
 }
 
 .profile-section,
@@ -138,25 +147,34 @@ p {
   margin-left: 16px;
   margin-right: 16px;
   background: rgba(255, 255, 255, 0.5);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .year {
   font-family: 'Arial', sans-serif;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: rgb(183, 133, 201);
 }
 
 .title {
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: rgb(130, 127, 127);
 }
 
 .school {
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: rgb(130, 127, 127);
+}
+
+.year {
+  padding-top: 5px;
+}
+
+.school {
+  padding-bottom: 5px;
 }
 
 .skills-section {
@@ -170,7 +188,6 @@ p {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
-  padding: 50px 10px;
 }
 
 hr {
@@ -178,6 +195,53 @@ hr {
   height: 3px;
   background-color: white;
   margin: 10px 16px;
+}
+
+.go-to-projects-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.projects-button {
+  user-select: none;
+  border: 2px solid white;
+  background: transparent;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  width: 30vh;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.projects-button:hover {
+  background: white;
+  color: rgb(183, 133, 201);
+}
+
+.projects-button a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h2 {
+  font-size: 1.1rem;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 @media screen and (min-width: 768px) {
@@ -215,11 +279,10 @@ hr {
   .education-item {
     margin-left: 35%;
     margin-right: 10%;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
   }
 
   .introduction {
-    margin-top: 30px;
+    margin-top: 25px;
     margin-left: 35%;
     margin-right: 10%;
     font-size: 1.45rem;
@@ -228,12 +291,20 @@ hr {
   .year,
   .title,
   .school {
-    font-size: 1.25rem;
-    margin-left: 20px;
+    font-size: 1.15rem;
+    margin-left: 10px;
+  }
+
+  .year {
+    padding-top: 10px;
+  }
+
+  .school {
+    padding-bottom: 10px;
   }
 
   .education-item {
-    margin-bottom: 40px;
+    margin-bottom: 25px;
   }
 
   .skills-section h1 {
@@ -251,12 +322,22 @@ hr {
   }
 
   .skills-section {
-    margin-bottom: 6%;
+    margin-bottom: 5%;
   }
   .skills-list {
     grid-template-columns: repeat(3, 1fr);
     padding: 30px 300px 20px 300px;
     gap: 30px 70px;
+  }
+
+  .projects-button {
+    font-size: 1rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-top: 40px;
+    margin-bottom: 50px;
   }
 }
 </style>

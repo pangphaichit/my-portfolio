@@ -222,7 +222,7 @@ export default {
 `,
         },
         {
-          name: 'Posatman',
+          name: 'Postman',
           svg: `<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g id="postman">
 <g id="postman_2">
@@ -383,7 +383,7 @@ export default {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    max-width: 1300px;
+    max-width: 1200px;
     margin-top: 50px;
     padding: 0px;
   }
@@ -402,10 +402,6 @@ export default {
 
   .icon-grid {
     grid-template-columns: repeat(3, 1fr);
-  }
-
-  .icon-item {
-    padding: 25px;
   }
 }
 </style>
