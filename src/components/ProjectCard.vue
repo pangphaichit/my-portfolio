@@ -41,6 +41,7 @@
                 :key="`feature-${featureIndex}`"
                 class="feature-item"
               >
+                <img class="saturn-icon" alt="Saturn Icon" src="/assets/projects/saturn.png" />
                 {{ feature }}
               </li>
             </ul>
@@ -57,7 +58,13 @@
                 />View on GitHub
               </button>
             </a>
-            <a :href="vercelLink" target="_blank" rel="noopener noreferrer" class="card-attachment">
+            <a
+              v-if="vercelLink"
+              :href="vercelLink"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="card-attachment"
+            >
               <button class="btn btn-vercel">
                 <img
                   class="vercel-icon"
@@ -66,6 +73,7 @@
                 />View on Vercel
               </button>
             </a>
+            <button v-else class="no-link-message" disabled>No Link Available</button>
           </div>
         </div>
       </div>
@@ -124,6 +132,7 @@ export default {
   transform: rotateY(0deg);
   padding: 15px;
   justify-content: space-between;
+  border: 2px solid white;
 }
 
 .card-front-name {
@@ -226,33 +235,64 @@ export default {
 }
 
 .card-back {
-  background: rgba(135, 39, 225, 0.8);
+  background-image: url('/public/sky.jpg');
+  opacity: 0.9;
   color: #fff;
   display: flex;
   flex-direction: column;
   border-radius: 10px;
   font-size: 24px;
   transform: rotateY(180deg);
-  padding: 15px;
+  padding: 20px;
   justify-content: space-between;
+  border: 2px solid white;
 }
 
 .card-back h2 {
   font-size: 1.5rem;
   font-weight: 700;
-  text-align: left;
+  text-align: center;
   color: rgb(255, 255, 255);
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 40px;
 }
+
 .features {
   font-size: 1.5rem;
   font-weight: 700;
   text-align: left;
 }
-h3 {
-  font-size: 1.5rem;
-  font-weight: 700;
+
+.card-back ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  list-style: none;
+  padding: 0;
+  margin-top: 5px;
 }
+
+.feature-item {
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  font-weight: 500;
+}
+
+.saturn-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.card-back h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
 .feature-item {
   list-style-type: none;
   text-align: left;
@@ -266,7 +306,9 @@ h3 {
 }
 
 .btn-github,
-.btn-vercel {
+.btn-vercel,
+.no-link-message {
+  font-size: 1rem;
   width: 100%;
   border-radius: 99px;
   padding: 10px;
@@ -279,6 +321,8 @@ h3 {
   justify-content: center;
   background-color: black;
   color: white;
+  border: black;
+  cursor: pointer;
 }
 
 .btn-vercel {
@@ -289,6 +333,16 @@ h3 {
   background-color: white;
   color: black;
   border: white;
+  cursor: pointer;
+}
+
+.no-link-message {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: gray;
+  background-color: rgb(221, 221, 221);
 }
 
 .vercel-icon {
@@ -310,8 +364,66 @@ a {
 
 @media screen and (min-width: 768px) {
   .project-card {
-    width: 100%;
-    height: 520px;
+    min-height: 580px;
+  }
+
+  .card-front {
+    padding: 20px;
+    cursor: pointer;
+  }
+
+  .card-front-image {
+    height: 43%;
+  }
+
+  .project-details {
+    font-size: 1rem;
+    height: 120px;
+    line-height: 1.5;
+  }
+
+  .project-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  .work-type {
+    font-size: 0.8rem;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .tech-stack-container h3 {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .tech-item {
+    font-size: 0.8rem;
+  }
+
+  .card-back {
+    padding: 30px;
+  }
+
+  .card-back ul {
+    margin-top: 10px;
+  }
+
+  .button-container {
+    gap: 20px;
+  }
+
+  .card-back ul {
+    margin-top: 20px;
+    gap: 10px;
+  }
+
+  .feature-item {
+    gap: 20px;
   }
 }
 </style>

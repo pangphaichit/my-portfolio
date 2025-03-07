@@ -56,12 +56,12 @@ const projects = ref<Project[]>([
     image: '/assets/projects/tourist-attraction-finder.png',
     workType: 'Frontend',
     features: [
-      'Search feature.',
-      'URL copy for tourist attraction pages',
-      'Search by clicking tags',
+      'Text-based search for tourist attractions.',
+      'URL copy for tourist attraction pages.',
+      'Search by clicking on tags',
     ],
     techStack: ['JavaScript', 'Node.js', 'React.js', 'Tailwind CSS'],
-    vercelLink: 'https://vercel.com',
+    vercelLink: '',
     githubLink: 'https://github.com/pangphaichit/react-tourist-attraction-mini-project',
   },
 ]);
@@ -89,8 +89,11 @@ const projects = ref<Project[]>([
 
 @media screen and (min-width: 768px) {
   .projects-card {
-    margin-top: 10%;
+    margin-top: 8.5%;
     flex-direction: row;
+    margin-left: 30px;
+    margin-right: 30px;
+    gap: 30px;
   }
 }
 </style>
