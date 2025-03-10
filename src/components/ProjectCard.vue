@@ -2,6 +2,7 @@
   <div class="project-card">
     <div class="card-inner">
       <div class="card-front">
+        <div class="card-front__border"></div>
         <div>
           <div class="card-front-image">
             <img :src="image" alt="Project image" class="project-image" />
@@ -127,12 +128,43 @@ export default {
 
 .card-front {
   display: flex;
-  background-color: rgb(235, 235, 235);
   border-radius: 15px;
   transform: rotateY(0deg);
   padding: 15px;
   justify-content: space-between;
   border: 2px solid white;
+  --white: rgb(255, 255, 255);
+  --black: rgb(21, 21, 29);
+  --paragraph: rgb(80, 80, 100);
+  --line: rgb(220, 220, 230);
+  --primary: rgb(174, 193, 227);
+  --blue: rgb(211, 204, 243);
+  --pink: rgb(246, 206, 218);
+  background-color: var(--blue);
+  background-image: radial-gradient(at 88% 40%, rgba(211, 204, 243, 0.8) 0px, transparent 85%),
+    radial-gradient(at 49% 30%, rgba(211, 204, 243, 0.8) 0px, transparent 85%),
+    radial-gradient(at 14% 26%, rgba(211, 204, 243, 0.8) 0px, transparent 85%),
+    radial-gradient(at 0% 64%, rgba(190, 180, 230, 0.9) 0px, transparent 85%),
+    radial-gradient(at 41% 94%, rgba(200, 190, 240, 0.9) 0px, transparent 85%),
+    radial-gradient(at 100% 99%, rgba(220, 210, 250, 0.9) 0px, transparent 85%);
+  border-radius: 1rem;
+  box-shadow:
+    0px -16px 24px 0px rgba(255, 255, 255, 0.7) inset,
+    4px 4px 15px rgba(255, 255, 255, 0.5);
+}
+
+.card-front .card-front__border {
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  z-index: -10;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  background-image: linear-gradient(0deg, rgb(255, 255, 255) -50%, rgb(211, 204, 243) 100%);
+  border-radius: 1rem;
 }
 
 .card-front-name {
@@ -235,8 +267,8 @@ export default {
 }
 
 .card-back {
-  background-image: url('/public/sky.jpg');
-  opacity: 0.9;
+  background: linear-gradient(180deg, rgb(211, 204, 243), rgb(214, 164, 164));
+  opacity: 0.8;
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -322,6 +354,9 @@ export default {
   background-color: black;
   color: white;
   border: black;
+  background-image: linear-gradient(0deg, rgb(30, 30, 30), rgb(60, 60, 60) 100%);
+  color: white;
+  box-shadow: inset 0 -2px 25px -4px rgba(255, 255, 255, 0.3);
   cursor: pointer;
 }
 
@@ -343,6 +378,7 @@ export default {
   justify-content: center;
   color: gray;
   background-color: rgb(221, 221, 221);
+  border: rgb(221, 221, 221);
 }
 
 .vercel-icon {
@@ -369,7 +405,6 @@ a {
 
   .card-front {
     padding: 20px;
-    cursor: pointer;
   }
 
   .card-front-image {
@@ -423,7 +458,7 @@ a {
   }
 
   .feature-item {
-    gap: 20px;
+    gap: 15px;
   }
 }
 </style>

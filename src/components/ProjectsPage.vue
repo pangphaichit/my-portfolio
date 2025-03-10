@@ -73,7 +73,7 @@ const projects = ref<Project[]>([
   position: relative;
   width: 100%;
   overflow: hidden;
-  background: rgb(174, 193, 227);
+  background: linear-gradient(180deg, rgb(174, 193, 227), rgb(246, 206, 218));
   user-select: none;
 }
 
@@ -91,9 +91,9 @@ const projects = ref<Project[]>([
   .projects-card {
     margin-top: 8.5%;
     flex-direction: row;
-    margin-left: 30px;
-    margin-right: 30px;
-    gap: 30px;
+    margin-left: 50px;
+    margin-right: 50px;
+    gap: 50px;
   }
 }
 </style>
