@@ -80,8 +80,6 @@ const educationItems = ref([
   right: 0%;
   width: 600px;
   opacity: 0.2;
-  pointer-events: none;
-  user-select: none;
 }
 
 .profile-section,

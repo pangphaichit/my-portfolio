@@ -124,6 +124,9 @@ export default {
   backface-visibility: hidden;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
   z-index: 1;
+  margin-bottom: 20px;
+
+  user-select: none;
 }
 
 .card-front {
@@ -242,6 +245,7 @@ export default {
 }
 
 .project-image {
+  pointer-events: none;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -314,6 +318,7 @@ export default {
 }
 
 .saturn-icon {
+  pointer-events: none;
   width: 24px;
   height: 24px;
 }
@@ -382,11 +387,13 @@ export default {
 }
 
 .vercel-icon {
+  pointer-events: none;
   width: 20px;
   height: 20px;
   margin-right: 10px;
 }
 .github-icon {
+  pointer-events: none;
   width: 25px;
   height: 25px;
   margin-right: 5px;
