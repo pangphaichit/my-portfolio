@@ -11,17 +11,22 @@
         </div>
       </div>
     </div>
+
     <div v-show="!loading" class="homepage-container" :class="{ 'fade-in': !loading }">
-      <NavBar />
       <div class="content">
         <div class="greeting-text">
           <h1>Bringing ideas to life.</h1>
-          <p>
-            In a universe where creativity knows no bounds, I turn concepts into real-world
-            solutions. With a focus on user experience and business needs, my portfolio showcases
-            the limitless potential of thoughtful innovation.
-          </p>
-          <button class="about-button" @click="goToAboutPage">About Me</button>
+          <div class="text-content">
+            <p>
+              In a universe where creativity knows no bounds, I turn concepts into real-world
+              solutions. With a focus on user experience and business needs, my portfolio showcases
+              the limitless potential of thoughtful innovation.
+            </p>
+
+            <div class="about-button">
+              <a href="#about-section" class="go-to-about-section">ABOUT</a>
+            </div>
+          </div>
         </div>
         <img class="saturn-image" alt="Saturn Image" src="saturn.png" />
         <img class="sphere-pastel" alt="Pastel Sphere Image" src="sphere-pastel.png" />
@@ -33,13 +38,10 @@
 <script lang="ts">
 import { ref, onMounted, defineComponent } from 'vue';
 import { useRouter } from 'vue-router';
-import NavBar from '@/components/NavBar.vue';
 
 export default defineComponent({
   name: 'HomePage',
-  components: {
-    NavBar,
-  },
+  components: {},
   setup() {
     const loading = ref(true);
     const router = useRouter();
@@ -63,8 +65,8 @@ export default defineComponent({
 .main-container {
   position: relative;
   width: 100%;
-  min-height: 100vh;
   overflow: hidden;
+  height: 100vh;
 }
 
 .homepage-container {
@@ -84,12 +86,12 @@ export default defineComponent({
 }
 
 .content {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   flex-grow: 1;
-  padding: 20px;
   text-align: center;
 }
 
@@ -98,10 +100,16 @@ export default defineComponent({
   z-index: 2;
 }
 
+.text-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0px 30px;
+}
+
 h1,
 p {
   user-select: none;
-  margin: 0;
   color: rgb(255, 255, 255);
 }
 
@@ -114,31 +122,40 @@ h1 {
 
 p {
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 2;
   font-size: 1rem;
   animation: fadeIn 4s ease-out;
   margin-bottom: 10px;
 }
 
 .about-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   user-select: none;
   border: 2px solid white;
   background: transparent;
   color: white;
-  font-size: 1.2rem;
-  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  width: 200px;
+  width: 30vh;
   height: 50px;
-  border-radius: 8px;
+  border-radius: 10px;
   margin-top: 20px;
   animation: fadeIn 4s ease-out;
 }
 
 .about-button:hover {
   background: white;
-  color: rgb(174, 193, 227);
+  color: rgb(183, 133, 201);
+}
+
+.about-button a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .sphere-pastel,
@@ -151,7 +168,7 @@ p {
 }
 
 .sphere-pastel {
-  top: 22%;
+  top: 15%;
   left: 0%;
   width: 60px;
   transform: rotate(5deg);
@@ -159,7 +176,7 @@ p {
 }
 
 .saturn-image {
-  bottom: 3%;
+  bottom: 8%;
   left: 70%;
   width: 200px;
   transform: rotate(-10deg);
@@ -310,8 +327,8 @@ p {
   }
 
   p {
-    max-width: 60%;
-    font-size: 1.25rem;
+    font-size: 1.2rem;
+    padding: 0px 140px;
   }
 
   .sphere-pastel {
