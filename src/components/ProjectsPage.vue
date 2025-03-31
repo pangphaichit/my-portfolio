@@ -1,13 +1,13 @@
 <template>
-  <div class="projects-container">
-    <div class="projects-card">
+  <div class="projects-container" ref="projectContainer">
+    <div class="projects-card animate-element fade-in">
       <ProjectCard v-for="project in projects" :key="project.name" v-bind="project" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import ProjectCard from './ProjectCard.vue';
 
 interface Project {
@@ -20,6 +20,8 @@ interface Project {
   vercelLink: string;
   githubLink: string;
 }
+
+const projectContainer = ref(null);
 
 const projects = ref<Project[]>([
   {
@@ -65,6 +67,30 @@ const projects = ref<Project[]>([
     githubLink: 'https://github.com/pangphaichit/react-tourist-attraction-mini-project',
   },
 ]);
+
+onMounted(() => {
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1,
+  };
+
+  const observerCallback = (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  };
+
+  const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+  document.querySelectorAll('.animate-element').forEach((el) => {
+    observer.observe(el);
+  });
+  if (projectContainer.value) observer.observe(projectContainer.value);
+});
 </script>
 
 <style scoped>
@@ -85,6 +111,23 @@ const projects = ref<Project[]>([
   margin-left: 16px;
   margin-right: 16px;
   gap: 16px;
+}
+
+.animate-element {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 2s ease,
+    transform 2s ease;
+}
+
+.animate-element.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in.visible {
+  transform: translateY(0);
 }
 
 @media screen and (min-width: 768px) {
