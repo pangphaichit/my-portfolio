@@ -242,12 +242,18 @@ button {
 }
 
 button:hover {
-  background: rgb(246, 206, 218);
+  background-image: linear-gradient(to right, rgb(167, 139, 250), rgb(244, 114, 182));
+  color: rgb(255, 255, 255);
 }
 
 button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
+}
+
+button:disabled:hover {
+  background-image: none;
+  background-color: #ccc;
 }
 
 .error {
